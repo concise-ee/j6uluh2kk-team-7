@@ -12,7 +12,7 @@ jobs:
     env:
       PROJECT_ID: j6uluh2kk
       REPO: ${{ github.event.repository.name }}
-      TEAM: demo
+      TEAM: team-7
     steps:
       - name: Checkout
         uses: actions/checkout@v2
