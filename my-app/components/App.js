@@ -3,6 +3,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import {Header} from './Header'
 import {Christmas} from './Christmas'
 import {getChristmas} from '../services/ChristmasService'
+import {strobo} from "../services/StroboService";
 
 class App extends Component {
 
@@ -14,6 +15,7 @@ class App extends Component {
     let christmas = await getChristmas()
     console.log(christmas);
     this.setState({christmas: christmas})
+    strobo()
   }
 
   render() {

@@ -1,9 +1,8 @@
 import React from 'react'
 
-export const Christmas = ({christmas}) => {
+export const Christmas = () => {
     return(
         <div className="container">
-            <h2>Is it christmas yet? {christmas.isItChristmasYet ? 'Yep' : 'Nope'}</h2>
         </div>
     )
 }
