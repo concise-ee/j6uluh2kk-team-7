@@ -22,7 +22,7 @@ class App extends Component {
   render() {
 
     return (
-      <div className="App">
+      <div className="App" style={{ backgroundImage: `url(/texture-3739393.jpg)`, backgroundRepeat: 'round' }}>
         {/*<Header></Header>*/}
         <div className="row mrgnbtm">
           <Christmas christmas={this.state.christmas}></Christmas>
