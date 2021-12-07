@@ -9,7 +9,7 @@ export function strobo() {
     for (var i = 0; i < baubles.length; i++) {
         baubles[i].style.backgroundColor = colorCode
     }
-    window.setTimeout(strobo, 5000)
+    window.setTimeout(strobo, 2500)
     // window.location.reload(true)
     
     
