@@ -1,0 +1,48 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: NAME-app
+  namespace: NAME
+spec:
+  replicas: 1
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxSurge: 1
+  selector:
+    # defines how the Deployment finds which Pods to manage
+    matchLabels:
+      app: NAME-app
+  template:
+    metadata:
+      labels:
+        app: NAME-app
+    spec:
+      containers:
+        # container image is referenced from GCR (Google Container Registry)
+        # make sure your tag (:1 or :2) is correct for the image you are downloading
+        - image: eu.gcr.io/j6uluh2kk/IMAGE
+          resources:
+            # how much resources container is guaranteed to get
+            requests:
+              # defined in millicores
+              cpu: 100m
+              memory: 200Mi
+            # upper limit that container can acquire even if node has plenty of resources
+            limits:
+              cpu: 200m
+              memory: 400Mi
+          name: node
+          ports:
+            - containerPort: 3080
+          # used to check if application is healthy
+          livenessProbe:
+            httpGet:
+              path: /api/christmas
+              port: 3080
+            initialDelaySeconds: 10
+          # used to check if it is ready (i.e. could route traffic)
+          readinessProbe:
+            httpGet:
+              path: /api/christmas
+              port: 3080

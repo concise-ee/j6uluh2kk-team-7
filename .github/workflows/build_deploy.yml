@@ -1,0 +1,63 @@
+name: Build and Deploy
+on:
+  push:
+    branches:
+      - '**'
+
+jobs:
+  build:
+    name: Build image
+    runs-on: ubuntu-latest
+
+    env:
+      PROJECT_ID: j6uluh2kk
+      REPO: ${{ github.event.repository.name }}
+      TEAM: demo
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - id: auth
+        uses: google-github-actions/auth@v0.4.0
+        with:
+          credentials_json: ${{ secrets.GCR_J6ULUH2KK_SERVICE_ACCOUNT_KEY }}
+
+      - name: Set up Cloud SDK
+        uses: google-github-actions/setup-gcloud@v0.2.1
+        with:
+          export_default_credentials: true
+
+      - name: Use gcloud CLI
+        run: gcloud info
+
+      # Build docker image
+      - name: Image
+        run: |-
+          docker build --tag eu.gcr.io/$PROJECT_ID/$REPO:$GITHUB_SHA .
+      # Configure docker to use the gcloud command-line tool as a credential helper
+      - run: |
+          gcloud auth configure-docker -q
+      # Push image to Google Container Registry
+      - name: Push
+        run: |-
+          docker push eu.gcr.io/$PROJECT_ID/$REPO:$GITHUB_SHA
+
+      # Get the GKE credentials so we can deploy to the cluster
+      - uses: google-github-actions/get-gke-credentials@fb08709ba27618c31c09e014e1d8364b02e5042e
+        with:
+          cluster_name: ${{ env.PROJECT_ID }}
+          location: europe-west1
+          credentials: ${{ secrets.GCR_J6ULUH2KK_SERVICE_ACCOUNT_KEY }}
+
+      - name: Set correct params
+        run: |
+          sed -ie "s/IMAGE/$REPO:$GITHUB_SHA/g" k8s/deployment.yml
+          sed -ie "s/NAME/$TEAM/g" k8s/deployment.yml
+          sed -ie "s/NAME/$TEAM/g" k8s/namespace.yml
+          sed -ie "s/NAME/$TEAM/g" k8s/service.yml
+
+      - name: Deploy
+        run: |-
+          kubectl apply -f k8s/namespace.yml
+          kubectl apply -f k8s/service.yml
+          kubectl apply -f k8s/deployment.yml
