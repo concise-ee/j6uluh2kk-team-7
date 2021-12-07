@@ -9,6 +9,10 @@ export const HolidayGrid = () => {
                     <Col className="flasher"/>
                     <Col className="flasher"/>
                     <Col className="flasher"/>
+                </Row>
+            </Container>
+            <Container>
+                <Row>
                     <Col className="flasher"/>
                     <Col className="flasher"/>
                     <Col className="flasher"/>
@@ -19,9 +23,6 @@ export const HolidayGrid = () => {
                     <Col className="flasher"/>
                     <Col className="flasher"/>
                     <Col className="flasher"/>
-                    <Col className="flasher"/>
-                    <Col className="flasher"/>
-                    <Col className="flasher"/>
                 </Row>
             </Container>
             <Container>
@@ -29,56 +30,10 @@ export const HolidayGrid = () => {
                     <Col className="flasher"/>
                     <Col className="flasher"/>
                     <Col className="flasher"/>
-                    <Col className="flasher"/>
-                    <Col className="flasher"/>
-                    <Col className="flasher"/>
                 </Row>
             </Container>
             <Container>
                 <Row>
-                    <Col className="flasher"/>
-                    <Col className="flasher"/>
-                    <Col className="flasher"/>
-                    <Col className="flasher"/>
-                    <Col className="flasher"/>
-                    <Col className="flasher"/>
-                </Row>
-            </Container>
-            <Container>
-                <Row>
-                    <Col className="flasher"/>
-                    <Col className="flasher"/>
-                    <Col className="flasher"/>
-                    <Col className="flasher"/>
-                    <Col className="flasher"/>
-                    <Col className="flasher"/>
-                </Row>
-            </Container>
-            <Container>
-                <Row>
-                    <Col className="flasher"/>
-                    <Col className="flasher"/>
-                    <Col className="flasher"/>
-                    <Col className="flasher"/>
-                    <Col className="flasher"/>
-                    <Col className="flasher"/>
-                </Row>
-            </Container>
-            <Container>
-                <Row>
-                    <Col className="flasher"/>
-                    <Col className="flasher"/>
-                    <Col className="flasher"/>
-                    <Col className="flasher"/>
-                    <Col className="flasher"/>
-                    <Col className="flasher"/>
-                </Row>
-            </Container>
-            <Container>
-                <Row>
-                    <Col className="flasher"/>
-                    <Col className="flasher"/>
-                    <Col className="flasher"/>
                     <Col className="flasher"/>
                     <Col className="flasher"/>
                     <Col className="flasher"/>

@@ -4,6 +4,13 @@ export function strobo() {
     for (let i = 0; i < 6; i++) {
         colorCode += colorCodeBytes[Math.floor(Math.random() * 15)]
     }
-    document.body.style.backgroundColor = colorCode
-    window.location.reload(true)
+    // document.body.style.backgroundColor = colorCode
+    var baubles = document.getElementsByClassName('flasher')
+    for (var i = 0; i < baubles.length; i++) {
+        baubles[i].style.backgroundColor = colorCode
+    }
+    window.setTimeout(strobo, 3000)
+    // window.location.reload(true)
+    
+    
 }
