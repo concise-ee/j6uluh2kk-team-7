@@ -4,6 +4,7 @@ import {Header} from './Header'
 import {Christmas} from './Christmas'
 import {getChristmas} from '../services/ChristmasService'
 import {strobo} from "../services/StroboService";
+import {HolidayGrid} from './HolidayGrid';
 
 class App extends Component {
 
@@ -22,10 +23,11 @@ class App extends Component {
 
     return (
       <div className="App">
-        <Header></Header>
+        {/*<Header></Header>*/}
         <div className="row mrgnbtm">
           <Christmas christmas={this.state.christmas}></Christmas>
         </div>
+        <HolidayGrid />
       </div>
     );
   }

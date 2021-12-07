@@ -12,8 +12,13 @@ app.use(express.static(path.join(__dirname, '../my-app/out')));
 
 app.get('/api/christmas', (req, res) => {
   console.log('merry called!')
+  var isItChristmasYet = false;
+  var today = new Date();
+  if (today.getDay() >= 24 && today.getDay() <= 26 && today.getMonth() == 12) {
+      isItChristmasYet = true;
+  }
   res.json({
-    isItChristmasYet: false
+    isItChristmasYet: isItChristmasYet
   });
 });
 
