@@ -42,8 +42,9 @@ a {
 .flasher {
   height: 6em!important;
   width: 6em!important;
-  border: 10px #358035 solid;
+  border: 4px #358035 solid;
   border-radius: 50px;
   background-color: #89abef;
   margin: 1.5em;
+  background: radial-gradient(circle at 50px 50px, black, #89abef);
 }
