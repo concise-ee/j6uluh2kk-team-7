@@ -44,7 +44,7 @@ a {
   width: 6em!important;
   border: 4px #358035 solid;
   border-radius: 50px;
-  background-color: #89abef;
+  background-color: #ec35e3;
   margin: 1.5em;
-  background: radial-gradient(circle at 50px 50px, black, #89abef);
+  background: radial-gradient(circle at 50px 50px, #ec35e3, black 120%);
 }

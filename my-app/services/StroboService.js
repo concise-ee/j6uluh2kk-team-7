@@ -8,7 +8,7 @@ export function strobo() {
     var baubles = document.getElementsByClassName('flasher')
     for (var i = 0; i < baubles.length; i++) {
         baubles[i].style.backgroundColor = colorCode
-        baubles[i].style.background = "radial-gradient(circle at 50px 50px, " + colorCode + ", black)"
+        baubles[i].style.background = "radial-gradient(circle at 50px 50px, " + colorCode + ", black 120%)"
     }
     window.setTimeout(strobo, 2500)
 }
@@ -21,5 +21,5 @@ export function stroboIndividual(baubleId) {
     }
     var baubleElement = document.getElementById(baubleId)
     baubleElement.style.backgroundColor = colorCode
-    baubleElement.style.background = "radial-gradient(circle at 50px 50px, " + colorCode + ", black)"
+    baubleElement.style.background = "radial-gradient(circle at 50px 50px, " + colorCode + ", black 120%)"
 }
