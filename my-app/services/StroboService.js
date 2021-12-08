@@ -5,7 +5,6 @@ export function strobo() {
         colorCode += colorCodeBytes[Math.floor(Math.random() * 15)]
     }
 
-    document.body.style.backgroundColor = colorCode
     var baubles = document.getElementsByClassName('flasher')
     for (var i = 0; i < baubles.length; i++) {
         baubles[i].style.backgroundColor = colorCode
